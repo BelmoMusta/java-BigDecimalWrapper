@@ -87,4 +87,39 @@ public class BigDecimalWrapper {
     public BigDecimalWrapper setScale(int scale, int roundingMode) {
         return new BigDecimalWrapper(innerDecimal.setScale(scale, roundingMode));
     }
+
+
+    public boolean isLessThan(BigDecimal another) {
+        return innerDecimal.compareTo(another) < 0;
+    }
+
+    public boolean isGreaterThan(BigDecimal another) {
+        return innerDecimal.compareTo(another) > 0;
+    }
+
+    public boolean isLessThanOrEquals(BigDecimal another) {
+        return innerDecimal.compareTo(another) <= 0;
+    }
+
+    public boolean isGreaterThanOrEquals(BigDecimal another) {
+        return innerDecimal.compareTo(another) >= 0;
+    }
+
+    public boolean isLessThan(BigDecimalWrapper another) {
+        return isLessThan(another.innerDecimal);
+    }
+
+    public boolean isGreaterThan(BigDecimalWrapper another) {
+        return isGreaterThan(another.innerDecimal);
+    }
+
+    public boolean isLessThanOrEquals(BigDecimalWrapper another) {
+        return isLessThanOrEquals(another.innerDecimal);
+    }
+
+    public boolean isGreaterThanOrEquals(BigDecimalWrapper another) {
+        return isGreaterThanOrEquals(another.innerDecimal);
+    }
+
+
 }

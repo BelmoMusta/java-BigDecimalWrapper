@@ -115,4 +115,42 @@ public class BigDecimalWrapperTest {
         BigDecimalWrapper bigDecimalWrapper = new BigDecimalWrapper();
         Assert.assertEquals("0", bigDecimalWrapper.toString());
     }
+
+    @Test
+    public void isLessThan() {
+
+        BigDecimalWrapper twelve = new BigDecimalWrapper(12L);
+        BigDecimalWrapper eleven = new BigDecimalWrapper(11L);
+        Assert.assertTrue(eleven.isLessThan(twelve));
+        Assert.assertFalse(twelve.isLessThan(eleven));
+    }
+
+    @Test
+    public void isGreaterThan() {
+        BigDecimalWrapper twelve = new BigDecimalWrapper(12L);
+        BigDecimalWrapper eleven = new BigDecimalWrapper(11L);
+        Assert.assertTrue(twelve.isGreaterThan(eleven));
+        Assert.assertFalse(eleven.isGreaterThan(twelve));
+    }
+
+    @Test
+    public void isLessThanOrEquals() {
+        BigDecimalWrapper twelve = new BigDecimalWrapper(12L);
+        BigDecimalWrapper eleven = new BigDecimalWrapper(11L);
+        Assert.assertTrue(eleven.isLessThanOrEquals(twelve));
+        Assert.assertTrue(eleven.isLessThanOrEquals(eleven));
+        Assert.assertTrue(twelve.isLessThanOrEquals(twelve));
+        Assert.assertFalse(twelve.isLessThanOrEquals(eleven));
+    }
+
+    @Test
+    public void isGreaterThanOrEquals() {
+        BigDecimalWrapper twelve = new BigDecimalWrapper(12L);
+        BigDecimalWrapper eleven = new BigDecimalWrapper(11L);
+        Assert.assertTrue(twelve.isGreaterThanOrEquals(eleven));
+        Assert.assertTrue(eleven.isGreaterThanOrEquals(eleven));
+        Assert.assertTrue(twelve.isGreaterThanOrEquals(twelve));
+        Assert.assertFalse(eleven.isGreaterThanOrEquals(twelve));
+    }
+
 }
